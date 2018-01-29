@@ -112,10 +112,10 @@ class MainWindow:
 
 
 if __name__ == '__main__':
-    import UI_support as support
+    import basicFunction as support
 
     root = Tk()
-    root.title('IMG Stego')
+    root.title('IMG Solve')
 
     top = MainWindow(root)
 

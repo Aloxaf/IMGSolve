@@ -2,7 +2,7 @@
 
 from pyzbar import pyzbar
 from PIL import Image, ImageDraw
-from tkinter import Menu
+from tkinter import Menu, messagebox
 
 from basicWindow import ReadOnlyText
 
@@ -92,22 +92,22 @@ def scan(scan_whole):
             # qr_code.save('02.png')
             data = pyzbar.decode(qr_code_dn)
 
-            # 如果还没成功, 就减少黑色杂色后再识别
-            if len(data) == 0:
-                # 减少黑色杂色
-                qr_code = denoise(qr_code, 50, 4, 1, 0)
-                # qr_code.save('01.png')
+        # 如果还没成功, 就减少黑色杂色后再识别
+        if len(data) == 0:
+            # 减少黑色杂色
+            qr_code = denoise(qr_code, 50, 4, 1, 0)
 
-                # 降噪
-                qr_code = denoise(qr_code, 50, 4, 1)
-                # qr_code.save('02.png')
-                data = pyzbar.decode(qr_code)
+            # 降噪
+            qr_code = denoise(qr_code, 50, 4, 1)
+            data = pyzbar.decode(qr_code)
 
+        if len(data) == 0:
+            messagebox.showerror('扫描结果', '没有识别到二维码, 建议更精确地框选二维码区域')
+        else:
+            result = ['{}\t{}\n'.format(x.type, x.data) for x in data]
 
-        result = ['{}\t{}\n'.format(x.type, x.data) for x in data]
-
-        # 显示结果
-        ReadOnlyText('扫描结果', ''.join(result))
+            # 显示结果
+            ReadOnlyText('扫描结果', ''.join(result))
 
     if scan_whole:
         decode(top.img)

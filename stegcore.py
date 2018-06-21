@@ -28,13 +28,7 @@ class StegImage:
         return img
 
     def getchannel(self, n):
-
-        pix = self.img.getdata()
-        data = [x[n] for x in pix]
-
-        img = Image.new('L', self.img.size)
-        img.putdata(data)
-        return img
+        return self.img.split()[n]
 
     def getrawimg(self):
         return self.img

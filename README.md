@@ -11,8 +11,11 @@
 + [x] 可视化查看图片的不同位
 + [x] 二维码扫描
 + [x] GIF逐帧查看
++ [ ] 快速预览
 + [ ] Hex视图
 + [ ] 图片对比
++ [ ] stereogram solver
++ [ ] Image Combiner
 
 ## 依赖
 

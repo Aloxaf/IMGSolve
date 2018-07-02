@@ -112,7 +112,7 @@ class MainWindow:
 
 
 if __name__ == '__main__':
-    import basicFunction as support
+    import basic.basicFunction as support
 
     root = Tk()
     root.title('IMG Solve')

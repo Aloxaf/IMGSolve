@@ -4,7 +4,7 @@ from pyzbar import pyzbar
 from PIL import Image, ImageDraw
 from tkinter import Menu, messagebox
 
-from basicWindow import ReadOnlyText
+from basic.basicWindow import ReadOnlyText
 
 try:
     from plugins.QRScan.Cdenoise import denoise

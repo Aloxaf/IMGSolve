@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-from basicWindow import ReadOnlyText
+from basic.basicWindow import ReadOnlyText
 
 
 def init(_top):

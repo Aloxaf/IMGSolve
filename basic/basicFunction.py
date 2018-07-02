@@ -10,7 +10,7 @@ import sys
 import tkinter
 import platform
 
-from stegcore import StegImage
+from .stegcore import StegImage
 from imgsolve import MainWindow
 from pyzbar import pyzbar
 import imgsolve
@@ -65,6 +65,7 @@ def openFile():
     # 切换提示
     top.Lnow.configure(text='原图')
     top.img = stegimg.img
+    top.stegimg = stegimg
 
     top.tkimg = ImageTk.PhotoImage(top.img)
     # 更新图像
